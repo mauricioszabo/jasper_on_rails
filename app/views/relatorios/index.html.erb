@@ -1,0 +1,24 @@
+<h1>Listing relatorios</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Relatorios</th>
+    <th>Modelos</th>
+  </tr>
+
+<% @relatorios.each do |relatorio| %>
+  <tr>
+    <td><%=h relatorio.nome %></td>
+    <td><%=h relatorio.relatorios %></td>
+    <td><%=h relatorio.modelos %></td>
+    <td><%= link_to 'Show', relatorio %></td>
+    <td><%= link_to 'Edit', edit_relatorio_path(relatorio) %></td>
+    <td><%= link_to 'Destroy', relatorio, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New relatorio', new_relatorio_path %>
