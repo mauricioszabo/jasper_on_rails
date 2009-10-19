@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+
+  #Relatório tem apenas uma ação.
+  map.connect 'relatorio/:relatorio', :controller => 'relatorio', :action => 'index',
+    :requirements => { :relatorio => /.*/ }
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
