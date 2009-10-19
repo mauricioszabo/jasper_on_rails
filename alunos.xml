@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alunos>
+  <aluno>
+    <id>1</id>
+    <nome>Maur&#237;cio</nome>
+    <disciplinas type="array">
+      <disciplina>
+        <tpi>1-2-3</tpi>
+        <nome>Ciencias</nome>
+        <aluno_id>1</aluno_id>
+      </disciplina>
+      <disciplina>
+        <tpi>3-2-1</tpi>
+        <nome>Engenharia</nome>
+        <aluno_id>1</aluno_id>
+      </disciplina>
+    </disciplinas>
+  </aluno>
+  <aluno>
+    <id>2</id>
+    <nome>Icaro Vinicius</nome>
+    <disciplinas type="array">
+      <disciplina>
+        <tpi>1-2-3</tpi>
+        <nome>Ciencias Dois</nome>
+        <aluno_id>2</aluno_id>
+      </disciplina>
+      <disciplina>
+        <tpi>3-2-1</tpi>
+        <nome>Engenharia Dois</nome>
+        <aluno_id>2</aluno_id>
+      </disciplina>
+    </disciplinas>
+  </aluno>
+</alunos>
