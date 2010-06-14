@@ -23,10 +23,12 @@ describe RelatorioController do
     end
 
     context 'report generation' do
-      it 'should create a new report object with given report and data' do
-        Relatorio.should_receive(:new).with('report_name', 'my_data').
+      it 'should create a new report object with given report, data and params' do
+        Relatorio.should_receive(:new).with('report_name', 'my_data',
+          {'p1' => '1', 'p2' => '2'}).
           and_return(mock_model(Relatorio, :to_pdf => nil))
-        get :index, :relatorio => 'report_name', :format => 'pdf', :dados => 'my_data'
+        get :index, :relatorio => 'report_name', :format => 'pdf',
+          :dados => 'my_data', :report_params => {'p1' => '1', 'p2' => '2'}
       end
 
       it 'should call to_#{format} on report object' do

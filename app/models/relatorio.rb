@@ -22,7 +22,7 @@ java_import Java::java::io::StringReader
 class Relatorio
   DIR = "#{RAILS_ROOT}/relatorios"
 
-  def initialize(modelo, dados)
+  def initialize(modelo, dados, report_params = nil)
     @modelo = "#{DIR}/#{modelo}.jasper"
     raise ArgumentError, "Arquivo #@modelo não existe." unless File.exist?(@modelo)
 
@@ -33,8 +33,8 @@ class Relatorio
     )
 
     @params = {
-      JRXPathQueryExecuterFactory::PARAMETER_XML_DATA_DOCUMENT => documento
-    }
+      JRXPathQueryExecuterFactory::PARAMETER_XML_DATA_DOCUMENT => documento }
+    @params.merge!(report_params) if report_params.present?
   end
 
   def to_pdf

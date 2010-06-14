@@ -10,7 +10,8 @@ class RelatorioController < ApplicationController
       return
     end
 
-    @relatorio = Relatorio.new(params[:relatorio], params[:dados].to_s)
+    @relatorio = Relatorio.new(params[:relatorio], params[:dados].to_s,
+        params[:report_params])
 
     respond_to do |format|
       [:pdf, :xls, :rtf, :docx, :csv, :ods, :odt].each do |um_formato|
