@@ -5,6 +5,11 @@ class RelatorioController < ApplicationController
       return
     end
 
+    if params[:dados].blank?
+      render :text => "dados parameter is required", :status => :forbidden
+      return
+    end
+
     @relatorio = Relatorio.new(params[:relatorio], params[:dados].to_s)
 
     respond_to do |format|

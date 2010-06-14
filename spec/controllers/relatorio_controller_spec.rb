@@ -4,14 +4,22 @@ describe RelatorioController do
 
   describe 'index' do
     context ' validation' do
-      it 'should require a format' do
+      before :each do
         Relatorio.stub!(:new).and_return(mock_model(Relatorio, :to_pdf => nil))
+      end
+
+      it 'should require a format' do
         get :index, :relatorio => 'anything', :dados => 'anyagain'
         response.should have_text 'Formato não permitido'
-        response.should_not be_success
         response.status.should =~ /403/
-
       end
+
+      it 'should require data' do
+        get :index, :relatorio => 'anything', :format => 'pdf'
+        response.should have_text 'dados parameter is required'
+        response.status.should =~ /403/
+      end
+
     end
 
     context 'report generation' do
