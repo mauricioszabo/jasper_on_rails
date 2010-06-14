@@ -9,11 +9,14 @@ Dir.entries("#{RAILS_ROOT}/lib/jasper/lib").each do |lib|
   require "jasper/lib/#{lib}" if lib =~ /\.jar$/
 end
 
+require 'java'
 java_import Java::net::sf::jasperreports::engine::util::JRXmlUtils
 java_import Java::net::sf::jasperreports::engine::query::JRXPathQueryExecuterFactory
 java_import Java::net::sf::jasperreports::engine::JasperFillManager
 java_import Java::net::sf::jasperreports::engine::JasperExportManager
 java_import Java::net::sf::jasperreports::engine::JRExporterParameter
+java_import Java::org::xml::sax::InputSource
+java_import Java::java::io::StringReader
 
 
 class Relatorio
@@ -93,3 +96,4 @@ class Relatorio
     return String.from_java_bytes(string.to_byte_array)
   end
 end
+
